@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bigml/bigml.iml" filepath="$PROJECT_DIR$/bigml/bigml.iml" />
+    </modules>
+  </component>
+</project>
