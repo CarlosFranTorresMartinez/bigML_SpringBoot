@@ -1,5 +1,7 @@
 package com.vallegrande.bigml.services;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
@@ -40,11 +42,29 @@ public class Conexion {
 
             /*Agregamos  nuestra respuesta*/
             String responseBody = httpclient.execute(httpPost, responseHandler);
-            System.out.println("responseBody" + responseBody);
+            System.out.println("responseBody " + responseBody);
+
+            /*Parseamos nuestra respuesta*/
+            JsonParser jsonParser = new JsonParser();
+            JsonObject jsonObject = (JsonObject) jsonParser.parse(responseBody);
+
+            Double confidence = jsonObject.get("confidence").getAsDouble();
+            Integer category = jsonObject.get("category").getAsInt();
+            Double credits = jsonObject.get("credits").getAsDouble();
+            Double probability = jsonObject.get("probability").getAsDouble();
+
+
+            String json_respuesta = "{\n" +
+                    "\"confidence\": "+confidence+",\n" +
+                    "\"category\": "+category+",\n" +
+                    "\"credits\": "+credits+",\n" +
+                    "\"probability\": "+probability+"\n" +
+                    "}";
 
             /*Obtenes la respuesta del Json*/
-            return responseBody;
+            return json_respuesta;
         }
+
 
     }
 }
