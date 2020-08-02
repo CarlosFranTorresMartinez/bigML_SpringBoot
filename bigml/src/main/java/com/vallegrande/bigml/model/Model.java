@@ -1,6 +1,9 @@
 package com.vallegrande.bigml.model;
 
-public class Model {
+import java.io.Serializable;
+
+public class Model implements Serializable {
+
     private String model;
     private int age;
     private int anaemia;
@@ -13,25 +16,6 @@ public class Model {
     private int serum_sodium;
     private int sex;
     private int smoking;
-
-    public Model(String model, int age, int anaemia, int creatinine_phosphokinase, int diabetes, int ejection_fraction, int high_blood_pressure, int platelets, int serum_creatinine, int serum_sodium, int sex, int smoking) {
-        this.model = model;
-        this.age = age;
-        this.anaemia = anaemia;
-        this.creatinine_phosphokinase = creatinine_phosphokinase;
-        this.diabetes = diabetes;
-        this.ejection_fraction = ejection_fraction;
-        this.high_blood_pressure = high_blood_pressure;
-        this.platelets = platelets;
-        this.serum_creatinine = serum_creatinine;
-        this.serum_sodium = serum_sodium;
-        this.sex = sex;
-        this.smoking = smoking;
-    }
-
-    public Model() {
-
-    }
 
     public String getModel() {
         return model;
@@ -127,23 +111,5 @@ public class Model {
 
     public void setSmoking(int smoking) {
         this.smoking = smoking;
-    }
-
-    @Override
-    public String toString() {
-        return "Model{" +
-                "model='" + model + '\'' +
-                ", age=" + age +
-                ", anaemia=" + anaemia +
-                ", creatinine_phosphokinase=" + creatinine_phosphokinase +
-                ", diabetes=" + diabetes +
-                ", ejection_fraction=" + ejection_fraction +
-                ", high_blood_pressure=" + high_blood_pressure +
-                ", platelets=" + platelets +
-                ", serum_creatinine=" + serum_creatinine +
-                ", serum_sodium=" + serum_sodium +
-                ", sex=" + sex +
-                ", smoking=" + smoking +
-                '}';
     }
 }

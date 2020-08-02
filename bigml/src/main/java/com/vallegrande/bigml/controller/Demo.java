@@ -2,9 +2,7 @@ package com.vallegrande.bigml.controller;
 
 import com.vallegrande.bigml.model.Model;
 import com.vallegrande.bigml.services.Conexion;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -12,16 +10,16 @@ import java.io.IOException;
 @RestController
 public class Demo {
 
-    Model model = new Model();
     private final Conexion conexion = new Conexion();
 
     @PostMapping("/add")
-    public String save() throws IOException {
+    public String save(@RequestBody Model model) throws IOException {
+
         /*Estructura de Json*/
         String json = "{\n" +
                 "    \"model\": \"logisticregression/5f24ad002fb31c2967005efa\",\n" +
                 "    \"input_data\" : {\n" +
-                "        \"age\": " + model.getAge() + ",\n" +
+                "        \"age\":  "+ model.getAge() +" ,\n" +
                 "        \"anaemia\": " + model.getAnaemia() + ",\n" +
                 "        \"creatinine_phosphokinase\": " + model.getCreatinine_phosphokinase() + ",\n" +
                 "        \"diabetes\": " + model.getDiabetes() + ",\n" +
@@ -34,6 +32,7 @@ public class Demo {
                 "        \"smoking\": " + model.getSmoking() + "\n" +
                 "    }\n" +
                 "}";
+
         /*Retonarmos la respuesta de la conexion*/
         return conexion.conectar(json);
     }

@@ -22,6 +22,8 @@ public class Conexion {
 
             /*Ingresamos nuestros datos con formato Json*/
             StringEntity stringEntity = new StringEntity(json);
+            System.out.println(json);
+
             /*Enviamos nuestro Json*/
             httpPost.setEntity(stringEntity);
 
