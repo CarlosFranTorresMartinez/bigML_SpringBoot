@@ -1,0 +1,122 @@
+<div class="container">
+    <h3 style="color: #fe4c50; font-weight: bold"> Datos del Paciente </h3>
+
+    <div *ngIf="estado">
+      <div class="row">
+          <div class="col-sm-4">
+            <label style="color: blue; font-weight: bold"> {{ valor }} </label> <br>
+            <label> Resultado: </label> <br>
+            <label> Confidencia: {{ confidence }} </label> <br>
+            <label> Probabilidad: {{ probability * 100}} % </label>
+          </div>
+          <div class="col-sm-4">
+            <img src="https://www.hazunaweb.com/imagenes/prueba.jpg" border="1" width="300" height="200">
+          </div>
+        </div>
+      <hr>
+    </div> 
+
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="age">Edad</label>
+              <input [(ngModel)]="api.age" name="age" class="form-control" placeholder="Ingrese la edad" max="120"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==3) return false;">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="anaemia">Tiene anemia?</label>
+              <select [(ngModel)]="api.anaemia" class="form-control" name="anaemia">
+                <option value="1"> Si </option>
+                <option value="0"> No </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="creatinine_phosphokinase">CPK</label>
+              <input [(ngModel)]="api.creatinine_phosphokinase" max="9818" name="creatinine_phosphokinase" class="form-control" placeholder="Ingrese la cantidad"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==4) return false;">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">          
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="diabetes">Tiene diabetes?</label>
+              <select [(ngModel)]="api.diabetes" class="form-control" name="diabetes">
+                <option value="1"> Si </option>
+                <option value="0"> No </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="ejection_fraction">Fracción de eyección</label>
+              <input type="number" [(ngModel)]="api.ejection_fraction" name="ejection_fraction" class="form-control" placeholder="Ingrese la cantidad" max="77"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==2) return false;">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="high_blood_pressure">Hipertensión</label>
+              <select [(ngModel)]="api.high_blood_pressure" class="form-control" name="high_blood_pressure">
+                <option value="1"> Si </option>
+                <option value="0"> No </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="platelets">Cant. de plaquetas</label>
+              <input [(ngModel)]="api.platelets" name="platelets" class="form-control" placeholder="Ingrese la cantidad"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==6) return false;">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="serum_creatinine">Cant. de suero de creatinina</label>
+              <input [(ngModel)]="api.serum_creatinine" name="serum_creatinine" class="form-control" placeholder="Ingrese la cantidad" max="228"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==3) return false;">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="serum_sodium">Cant. de Sodio sérico</label>
+              <input [(ngModel)]="api.serum_sodium" name="serum_sodium" class="form-control" placeholder="Ingrese la cantidad" max="154"
+                type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==3) return false;">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="sex">Sexo</label>
+              <select [(ngModel)]="api.sex" class="form-control" name="sex" >
+                <option value="1"> Hombre </option>
+                <option value="0"> Mujer </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="smoking">Fumas?</label>
+              <select [(ngModel)]="api.smoking" class="form-control" name="smoking">
+                <option value="1"> Si </option>
+                <option value="0"> No </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button>Enviar</button>
+      </form>    
+    </div>    
+</div>
