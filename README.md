@@ -1,1 +1,1 @@
-# bigML_SpringBoot
+# bigML_JavaEE
